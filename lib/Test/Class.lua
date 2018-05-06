@@ -38,8 +38,6 @@ end
 
 local unpack = unpack or table.unpack
 
-local dumper = require('Utils').dumper
-
 function _M:run_test_class_instance()
   local test_class       = self.class
   local all_test_methods = self:_get_all_test_methods()
