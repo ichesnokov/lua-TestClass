@@ -72,10 +72,10 @@ end
 function _M:_get_class_hierarchy()
   local class_hierarchy = { }
   local class = self.class
-  repeat
+  while class.super and class.name ~= 'Test.Class' do
     table.insert(class_hierarchy, class)
     class = class.super
-  until not class.super or class.super.name == 'Test.Class'
+  end
   class_hierarchy = reverse(class_hierarchy)
   return class_hierarchy
 end
