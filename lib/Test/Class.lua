@@ -1,6 +1,6 @@
 local _M = require('middleclass')('Test.Class')
 
-require 'Test.More'
+local tb = require('Test.Builder').new()
 
 local test_classes = {}
 
@@ -17,7 +17,7 @@ function _M.run_tests(arg)
   for i = 1, #test_classes do
     test_classes[i]:new(arg.include):run_test_class_instance()
   end
-  done_testing()
+  tb:done_testing()
 end
 
 function _M:test_startup()
@@ -42,9 +42,9 @@ function _M:run_test_class_instance()
   local test_class       = self.class
   local all_test_methods = self:_get_all_test_methods()
 
-  note('Running tests for ' .. test_class.name)
-  note("\n")
-  subtest(
+  tb:note('Running tests for ' .. test_class.name)
+  tb:note("\n")
+  tb:subtest(
     test_class.name,
     function()
       -- Run test_startup() before all test methods
@@ -123,13 +123,13 @@ function _M:_run_test_method(test_class, method_name)
   self:test_setup()
 
   -- Run test method as a subtest
-  note(test_class.name .. '.' .. method_name .. '()')
-  subtest(
+  tb:note(test_class.name .. '.' .. method_name .. '()')
+  tb:subtest(
     method_name,
     function()
       local is_success, result = pcall(self[method_name], self)
       if not is_success then
-        diag(result)
+        tb:diag(result)
       end
     end
   )
