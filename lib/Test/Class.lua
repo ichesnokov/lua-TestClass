@@ -15,7 +15,8 @@ end
 function _M.run_tests(arg)
   arg = arg or {}
   for i = 1, #test_classes do
-    test_classes[i]:new(arg.include):run_test_class_instance()
+    local test_class = test_classes[i]
+    test_class:new(arg.include):run_test_class_instance()
   end
   tb:done_testing()
 end
