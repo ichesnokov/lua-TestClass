@@ -36,8 +36,6 @@ function _M:test_teardown()
   -- Empty base method
 end
 
-local unpack = unpack or table.unpack
-
 function _M:run_test_class_instance()
   local test_class       = self.class
   local all_test_methods = self:_get_all_test_methods()
