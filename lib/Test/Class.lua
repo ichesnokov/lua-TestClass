@@ -118,6 +118,7 @@ end
 
 function _M:_run_test_method(test_class, method_name)
   -- Setup a particular test
+  self.current_method = method_name
   self:test_setup()
 
   -- Run test method as a subtest
