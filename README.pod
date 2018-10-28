@@ -37,7 +37,7 @@ Test.Class - xUnit-style testing framework for Lua.
 
 =head1 DESCRIPTION
 
-To be done.
+Interface can be unstable - use at your own risk.
 
 =head1 SEE ALSO
 
