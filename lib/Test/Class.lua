@@ -1,5 +1,7 @@
 local _M = require('middleclass')('Test.Class')
 
+_M._VERSION = "0.01"
+
 local tb = require('Test.Builder').new()
 
 local test_classes = {}
