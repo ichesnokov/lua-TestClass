@@ -1,5 +1,5 @@
 package = "lua-TestClass"
-version = "scm-0",
+version = "scm-0"
 
 source = {
    url = "https://github.com/ichesnokov/lua-TestClass/archive/master.zip",
