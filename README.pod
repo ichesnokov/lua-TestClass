@@ -4,7 +4,7 @@ Test.Class - xUnit-style testing framework for Lua.
 
 =head1 SYNOPSIS
 
-  -- Loading classes directly
+  -- Loading classes directly...
 
   -- t/lib/TestsFor/My/Class.lua
   local _M = require('Test.Class')('TestsFor.My.Class')
@@ -22,10 +22,9 @@ Test.Class - xUnit-style testing framework for Lua.
   local tc = require('Test.Class')
   tc.runtests()
 
-  -- or, using a loader:
+  -- ...or, using a loader
 
   -- t/unit.lua
-  -- ...considering that path/to/t/lib/?.lua is in package.path...
   local tc_loader = require('Test.Class.Load')
   local runner    = require('Test.Class.Runner')
 
@@ -34,14 +33,6 @@ Test.Class - xUnit-style testing framework for Lua.
 
   -- Run loaded tests
   tc_runner.run_tests()
-
-=head1 LICENSE
-
-MIT/X11
-
-=head1 AUTHOR
-
-L<Ilya Chesnokov|https://github.com/ichesnokov>
 
 =head1 SEE ALSO
 
@@ -52,5 +43,13 @@ L<Ilya Chesnokov|https://github.com/ichesnokov>
 =item L<Test::Class::Moose|https://metacpan.org/pod/Test::Class::Moose>
 
 =back
+
+=head1 LICENSE
+
+MIT/X11
+
+=head1 AUTHOR
+
+L<Ilya Chesnokov|https://github.com/ichesnokov>
 
 =cut
