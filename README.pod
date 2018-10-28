@@ -1,0 +1,56 @@
+=head1 NAME
+
+Test.Class - xUnit-style testing framework for Lua.
+
+=head1 SYNOPSIS
+
+  -- Loading classes directly
+
+  -- t/lib/TestsFor/My/Class.lua
+  local _M = require('Test.Class')('TestsFor.My.Class')
+
+  _M:test_sum()
+    is(sum(2, 2), 4, '2+2 is 4')
+    is(sum(2.00001, 1.99999), 4, '2.00001 + 1.99999 is also 4')
+  end
+
+  return _M
+
+  -- t/unit.lua
+  -- ...considering that path/to/t/lib/?.lua is in package.path...
+  require('TestsFor.My.Class')
+  local tc = require('Test.Class')
+  tc.runtests()
+
+  -- or, using a loader:
+
+  -- t/unit.lua
+  -- ...considering that path/to/t/lib/?.lua is in package.path...
+  local tc_loader = require('Test.Class.Load')
+  local runner    = require('Test.Class.Runner')
+
+  -- Load test classes from ./t/lib
+  tc_loader.load('./t/lib')
+
+  -- Run loaded tests
+  tc_runner.run_tests()
+
+=head1 LICENSE
+
+MIT/X11
+
+=head1 AUTHOR
+
+L<Ilya Chesnokov|https://github.com/ichesnokov>
+
+=head1 SEE ALSO
+
+=over
+
+=item L<xUnit|https://wikipedia.org/wiki/XUnit>
+
+=item L<Test::Class::Moose|https://metacpan.org/pod/Test::Class::Moose>
+
+=back
+
+=cut
