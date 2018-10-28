@@ -4,7 +4,7 @@ Test.Class - xUnit-style testing framework for Lua.
 
 =head1 SYNOPSIS
 
-  -- Loading classes directly...
+  -- Test class for My.Class
 
   -- t/lib/TestsFor/My/Class.lua
   local _M = require('Test.Class')('TestsFor.My.Class')
@@ -16,23 +16,28 @@ Test.Class - xUnit-style testing framework for Lua.
 
   return _M
 
+  -- Loading test classes directly...
+
   -- t/unit.lua
   -- ...considering that path/to/t/lib/?.lua is in package.path...
   require('TestsFor.My.Class')
-  local tc = require('Test.Class')
-  tc.runtests()
+  local TC = require('Test.Class')
+  TC.runtests()
 
   -- ...or, using a loader
 
   -- t/unit.lua
-  local tc_loader = require('Test.Class.Load')
-  local runner    = require('Test.Class.Runner')
+  local TC = require('Test.Class')
 
   -- Load test classes from ./t/lib
-  tc_loader.load('./t/lib')
+  TC.load_classes('./t/lib')
 
   -- Run loaded tests
-  tc_runner.run_tests()
+  TC.run_tests()
+
+=head1 DESCRIPTION
+
+To be done.
 
 =head1 SEE ALSO
 
