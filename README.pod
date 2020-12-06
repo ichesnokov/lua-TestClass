@@ -7,7 +7,9 @@ Test.Class - xUnit-style testing framework for Lua.
   -- Test class for My.Class
 
   -- t/lib/TestsFor/My/Class.lua
-  local _M = require('Test.Class')('TestsFor.My.Class')
+
+  -- Make _M a "middleclass" class, and a subclass of "Test.Class"
+  local _M = require('middleclass')('TestsFor.My.Class', require('Test.Class'))
 
   _M:test_sum()
     is(sum(2, 2), 4, '2+2 is 4')
